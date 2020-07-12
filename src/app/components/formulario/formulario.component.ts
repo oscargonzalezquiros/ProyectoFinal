@@ -9,20 +9,24 @@ import { Tarea } from 'src/app/models/tarea';
 })
 export class FormularioComponent implements OnInit {
   public descripcion: string; // mantiene la descripcion de la tarea
+  public usuario: string; // Usuario
   constructor(private tareaSvc: PrincipalService) { }
 
   ngOnInit(): void {
   }
 
   procesar(): void{
+   
     
+ 
     if (this.descripcion  && this.descripcion !== '') {
       console.log(this.descripcion);
       const tarea = new Tarea();
+      tarea.usuario = this.usuario;
+      tarea.fecha = new Date;
       tarea.descripcion = this.descripcion;
-      console.log(this.descripcion);
       this.tareaSvc.tareas.push(tarea);
-     
+    
     }
  
   }
