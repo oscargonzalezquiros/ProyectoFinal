@@ -8,26 +8,31 @@ import { Tarea } from 'src/app/models/tarea';
   styleUrls: ['./formulario.component.scss']
 })
 export class FormularioComponent implements OnInit {
-  public descripcion: string; // mantiene la descripcion de la tarea
-  public usuario: string; // Usuario
+  public descripcion: string; //Mantiene la descripcion de la tarea
+  public usuario: string;
+  public id: string;
+
   constructor(private tareaSvc: PrincipalService) { }
 
   ngOnInit(): void {
   }
 
-  procesar(): void{
-   
-    
- 
-    if (this.descripcion  && this.descripcion !== '') {
+  // Este metodo se ejecuta cada vez que el usuario hace click en el boton
+  procesar(): void {
+    // console.log(this.descripcion);
+    // UNDEFINED "VALOR" ""
+
+    if (this.descripcion && this.descripcion !== '') {
       console.log(this.descripcion);
       const tarea = new Tarea();
       tarea.usuario = this.usuario;
-      tarea.fecha = new Date;
       tarea.descripcion = this.descripcion;
+      tarea.fecha = new Date();
+      tarea.estado = 'A';
       this.tareaSvc.tareas.push(tarea);
-    
+      console.log(tarea);
+      this.tareaSvc.addTarea(tarea).subscribe((resp) => console.log('RESPONSE', resp));
     }
- 
+
   }
 }

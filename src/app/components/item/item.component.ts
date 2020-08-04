@@ -8,7 +8,7 @@ import { PrincipalService } from 'src/app/service/principal.service';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-  
+
   @Input() tarea: Tarea;
 
   constructor(private prSvc: PrincipalService) {
@@ -18,8 +18,9 @@ export class ItemComponent implements OnInit {
   }
 
   eliminar (): void{
-   
+
     this.prSvc.tareas = this.prSvc.tareas.filter(cadaTarea => cadaTarea !== this.tarea);
-    
+    this.prSvc.deleteTarea(this.tarea).subscribe((resp) => console.log('RESPONSE', resp));
+
   }
 }

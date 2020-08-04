@@ -1,0 +1,36 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+body{
+background-color: lightgray;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+#container{
+ background-color: lightgreen;
+ width: 1100px;
+ margin: 0px auto;
+ border: 1px solid black;
+
+}
+
+header{
+ background-color: lightskyblue;
+ color: white;
+ text-align: center;
+ height: 50px;
+ line-height: 50px;
+}
+
+
+#content{
+ float: left;
+ width: calc(80%-80px);
+ min-height: 500px;
+ background-color: green;
+ padding: 40px;
+
+}

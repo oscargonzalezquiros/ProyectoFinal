@@ -11,6 +11,8 @@ export class ListaComponent implements OnInit {
   constructor(public service: PrincipalService) { }
 
   ngOnInit(): void {
+    this.service.getTareas().subscribe(resp => {
+    })
   }
 
 }
